@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A professional cyber-security puzzle game.">
+  <title>CYBER BREACH</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/animations.css">
+  <link rel="stylesheet" href="assets/responsive.css">
+</head>
+
+<body class="theme-neon-blue">
+  <div id="particles"></div>
+  <div class="cyber-grid"></div>
+
+  <div class="crt-overlay"></div>
+
+  <div id="app-container">
+
+    
+    <div id="screen-main" class="screen active">
+      <div class="title-container">
+        <div class="glitch" data-text="CYBER BREACH">CYBER BREACH</div>
+        <div class="subtitle">SECURITY OVERRIDE PROTOCOL</div>
+      </div>
+
+      <div class="menu-options">
+        <button class="cyber-btn primary" onclick="ui.showScreen('screen-missions')">
+          <span class="btn-text">INITIALIZE MISSIONS</span>
+          <span class="btn-glitch"></span>
+        </button>
+        <button class="cyber-btn" onclick="game.startDailyChallenge()">
+          <span class="btn-text">DAILY INTRUSION</span>
+          <span class="btn-glitch"></span>
+        </button>
+        <button class="cyber-btn" onclick="ui.showScreen('screen-stats')">
+          <span class="btn-text">DATA LOGS (STATS)</span>
+          <span class="btn-glitch"></span>
+        </button>
+        <button class="cyber-btn" onclick="ui.showScreen('screen-settings')">
+          <span class="btn-text">SYSTEM PREF (THEMES)</span>
+          <span class="btn-glitch"></span>
+        </button>
+      </div>
+
+      <div class="player-card">
+        <div class="rank-title" id="menu-rank">Rank: Rookie</div>
+        <div class="xp-bar">
+          <div class="xp-fill" id="menu-xp-fill"></div>
+        </div>
+        <div class="xp-text" id="menu-xp-text">0 / 100 XP (Lvl 1)</div>
+      </div>
+    </div>
+
+    
+    <div id="screen-missions" class="screen hidden">
+      <div class="header-nav">
+        <button class="icon-btn" onclick="ui.showScreen('screen-main')">◀ BACK</button>
+        <h2>SELECT TARGET</h2>
+      </div>
+      <div class="mission-list" id="mission-list">
+        
+      </div>
+    </div>
+
+    
+    <div id="screen-stats" class="screen hidden">
+      <div class="header-nav">
+        <button class="icon-btn" onclick="ui.showScreen('screen-main')">◀ BACK</button>
+        <h2>DATA LOGS</h2>
+      </div>
+      <div class="stats-container scrollable">
+        <div class="panel">
+          <h3>STATISTICS</h3>
+          <ul id="stats-list" class="data-list"></ul>
+        </div>
+        <div class="panel">
+          <h3>ACHIEVEMENTS</h3>
+          <div id="achievements-list" class="achievements-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div id="screen-settings" class="screen hidden">
+      <div class="header-nav">
+        <button class="icon-btn" onclick="ui.showScreen('screen-main')">◀ BACK</button>
+        <h2>SYSTEM PREF</h2>
+      </div>
+      <div class="panel">
+        <h3>SELECT THEME</h3>
+        <div class="theme-grid">
+          <button class="theme-btn theme-neon-blue" onclick="ui.setTheme('theme-neon-blue')">Neon Blue</button>
+          <button class="theme-btn theme-matrix-green" onclick="ui.setTheme('theme-matrix-green')">Matrix Green</button>
+          <button class="theme-btn theme-purple-cyber" onclick="ui.setTheme('theme-purple-cyber')">Purple Cyber</button>
+          <button class="theme-btn theme-red-alert" onclick="ui.setTheme('theme-red-alert')">Red Alert</button>
+        </div>
+      </div>
+
+      
+      <div class="panel danger-zone">
+        <h3 class="danger-title">⚠ DANGER ZONE</h3>
+        <p class="danger-desc">Permanently erase all saved progress, achievements, statistics, and settings.</p>
+        <button class="cyber-btn btn-danger" id="btn-clear-data">🗑 CLEAR ALL
+          DATA</button>
+      </div>
+    </div>
+
+    
+    <div id="screen-game" class="screen hidden">
+      <div class="game-header panel glass">
+        <div class="mission-info" id="game-mission-name">Mission 1</div>
+        <button class="cyber-btn small" onclick="ui.showRuleBook()">📖 RULE BOOK</button>
+        <div class="game-stats">
+          <div class="stat-box">
+            <span class="label">TIME</span>
+            <span class="value" id="game-time">00:00</span>
+          </div>
+          <div class="stat-box">
+            <span class="label">TRACES</span>
+            <span class="value" id="game-attempts">0/5</span>
+          </div>
+        </div>
+        <button class="cyber-btn danger small" onclick="game.abort()">ABORT</button>
+      </div>
+
+      <div class="game-layout">
+        
+        <div class="hacker-console panel glass">
+          <div class="panel-header">TERMINAL LOG</div>
+          <div class="console-body" id="console-output"></div>
+        </div>
+
+        
+        <div class="game-board">
+          <div class="lock-container">
+            <div id="lock-icon" class="lock-locked">
+              <svg viewBox="0 0 24 24" width="64" height="64" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" class="lock-svg">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="display panel glass" id="game-display">_ _ _</div>
+
+          <div class="keypad" id="keypad">
+            <button onclick="game.press(1)">1</button>
+            <button onclick="game.press(2)">2</button>
+            <button onclick="game.press(3)">3</button>
+            <button onclick="game.press(4)">4</button>
+            <button onclick="game.press(5)">5</button>
+            <button onclick="game.press(6)">6</button>
+            <button onclick="game.press(7)">7</button>
+            <button onclick="game.press(8)">8</button>
+            <button onclick="game.press(9)">9</button>
+            <button class="btn-action" onclick="game.clearInput()">C</button>
+            <button onclick="game.press(0)">0</button>
+            <button class="btn-action primary" onclick="game.submitCode()">✔</button>
+          </div>
+          <div class="game-actions">
+            <button class="cyber-btn small" id="btn-hint" onclick="game.useHint()">USE HINT</button>
+          </div>
+        </div>
+
+        
+        <div class="guess-history panel glass">
+          <div class="panel-header">ACCESS LOGS</div>
+          <div class="history-body" id="history-list">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="modal-overlay" class="modal-overlay hidden">
+
+    
+    <div id="modal-result" class="modal glass hidden">
+      <h2 id="result-title" class="glitch" data-text="ACCESS DENIED">ACCESS DENIED</h2>
+
+      
+      <div class="secret-code-box">
+        <div class="secret-code-label">🔐 SECRET CODE</div>
+        <div class="secret-code-value" id="r-secret-code">----</div>
+      </div>
+
+      <div class="result-details" id="result-details">
+        <p><span class="detail-label">TIME BONUS</span><span id="r-time">0</span></p>
+        <p><span class="detail-label">ATTEMPT BONUS</span><span id="r-attempts">0</span></p>
+        <p><span class="detail-label">HINT PENALTY</span><span id="r-hint">0</span></p>
+        <p><span class="detail-label">TOTAL SCORE</span><span id="r-score" class="highlight">0</span></p>
+        <p><span class="detail-label">TIME TAKEN</span><span id="r-time-taken">0s</span></p>
+        <p><span class="detail-label">RANK</span><span id="r-rank" class="highlight">—</span></p>
+      </div>
+      <div class="xp-gain">
+        <p>+<span id="r-xp">0</span> XP</p>
+        <div class="xp-bar">
+          <div class="xp-fill" id="r-xp-fill"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="cyber-btn" onclick="ui.closeModal(); ui.showScreen('screen-main')">HOME</button>
+        <button class="cyber-btn primary" id="btn-next-mission" onclick="game.nextMission()">NEXT TARGET</button>
+      </div>
+    </div>
+
+    
+    <div id="modal-notification" class="modal-toast hidden">
+      <div class="toast-icon">🏆</div>
+      <div class="toast-content">
+        <h4 id="toast-title">Achievement Unlocked</h4>
+        <p id="toast-desc">First Victory</p>
+      </div>
+    </div>
+
+    
+    <div id="modal-reset-confirm" class="modal-overlay hidden" role="dialog" aria-modal="true">
+      <div class="modal glass reset-confirm-modal">
+        <div class="reset-warning-icon">⚠</div>
+        <h2 class="reset-title">WARNING</h2>
+        <p class="reset-subtitle">This action will <strong>permanently delete</strong>:</p>
+        <ul class="reset-list">
+          <li>All achievements &amp; statistics</li>
+          <li>XP, level &amp; rank progress</li>
+          <li>Mission &amp; daily challenge records</li>
+          <li>Win streaks &amp; best scores</li>
+          <li>Saved settings &amp; theme</li>
+        </ul>
+        <p class="reset-question">Are you sure?</p>
+        <div class="modal-actions">
+          <button class="cyber-btn" id="btn-reset-cancel">Cancel</button>
+          <button class="cyber-btn btn-danger" id="btn-reset-confirm">Delete
+            Everything</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div id="modal-rule-book" class="modal-overlay hidden" role="dialog" aria-modal="true">
+      <div class="modal glass rule-book-modal">
+        <h2 class="glitch" data-text="RULE BOOK">RULE BOOK</h2>
+        <div class="rule-book-content">
+          <h3>⚠️ SPECIAL GAME MECHANIC</h3>
+          <p>The security system automatically generates a new secret code after every attempt.</p>
+          <p>This is an intentional feature designed to increase difficulty and make each attempt unique.</p>
+          <p>Players should not expect previous attempts to help reveal the next code because the code changes continuously.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="cyber-btn primary" onclick="ui.hideRuleBook()">CLOSE</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="assets/missions.js"></script>
+    <script src="assets/storage.js"></script>
+    <script src="assets/ui.js"></script>
+    <script src="assets/achievements.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,887 @@
+
+
+
+
+
+#app-container {
+  padding: 6px;
+}
+
+.screen {
+  padding: 8px;
+}
+
+
+.title-container {
+  margin-top: 3vh;
+  margin-bottom: 20px;
+}
+
+.glitch {
+  font-size: clamp(1.4rem, 8vw, 2.5rem);
+  letter-spacing: clamp(1px, 1vw, 3px);
+}
+
+.subtitle {
+  letter-spacing: clamp(1px, 1.5vw, 5px);
+  font-size: clamp(0.55rem, 2vw, 0.8rem);
+}
+
+.menu-options {
+  gap: 12px;
+}
+
+.cyber-btn {
+  width: min(280px, 92%);
+  padding: 10px 14px;
+  font-size: clamp(0.72rem, 2.5vw, 0.95rem);
+  letter-spacing: 1px;
+}
+
+.player-card {
+  width: min(280px, 92%);
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.rank-title {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+}
+
+.xp-text {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+}
+
+
+.header-nav {
+  margin-bottom: 14px;
+  gap: 8px;
+}
+
+.header-nav h2 {
+  font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.icon-btn {
+  font-size: clamp(0.85rem, 2.5vw, 1.2rem);
+}
+
+
+.mission-list {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.mission-card {
+  padding: 14px;
+}
+
+.mission-card h3 {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+
+.stats-container {
+  grid-template-columns: 1fr;
+  height: auto;
+  overflow-y: auto;
+}
+
+.data-list li {
+  padding: 8px 0;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+.achievements-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100px, 45%), 1fr));
+  gap: 6px;
+}
+
+.achievement {
+  padding: 8px 4px;
+}
+
+.achievement-icon {
+  font-size: 1.4rem;
+}
+
+.achievement-name {
+  font-size: 0.65rem;
+}
+
+
+.theme-grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.theme-btn {
+  padding: 14px;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+
+.danger-zone {
+  padding: 14px;
+}
+
+.danger-title {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+.danger-desc {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+}
+
+
+
+
+.game-header {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  min-height: auto;
+}
+
+.mission-info {
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  width: 100%;
+  text-align: center;
+  order: -1;
+}
+
+.game-stats {
+  gap: 12px;
+}
+
+.stat-box .label {
+  font-size: 0.55rem;
+}
+
+.stat-box .value {
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+}
+
+.cyber-btn.danger.small,
+.cyber-btn.small {
+  padding: 6px 10px;
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+}
+
+
+.game-layout {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  overflow-y: auto;
+  min-height: 0;
+  padding-bottom: 300px; 
+}
+
+
+.game-board {
+  order: 1;
+}
+
+.guess-history {
+  order: 2;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.hacker-console {
+  order: 3;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.panel-header {
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  letter-spacing: 1px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+
+.lock-container {
+  height: 50px;
+}
+
+.lock-svg {
+  width: 40px;
+  height: 40px;
+}
+
+
+.display {
+  font-size: clamp(1.1rem, 5vw, 1.8rem);
+  letter-spacing: clamp(3px, 2vw, 8px);
+  padding: 6px;
+  min-height: 40px;
+}
+
+
+.keypad {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, 95%);
+  background: var(--panel-bg);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 55px;
+  gap: 10px;
+}
+
+.keypad button {
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  border-radius: 6px;
+}
+
+.keypad .btn-action {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+.game-actions {
+  margin-top: 6px;
+}
+
+
+.guess-num {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  letter-spacing: clamp(2px, 1vw, 5px);
+}
+
+.guess-feedback {
+  font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+}
+
+.guess-item {
+  padding: 8px;
+}
+
+
+.console-body {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+}
+
+
+.modal {
+  width: 94%;
+  max-width: 420px;
+  padding: 14px;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  margin-bottom: 10px;
+}
+
+
+.secret-code-box {
+  width: 92%;
+  padding: 12px 10px;
+}
+
+.secret-code-label {
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 2px;
+}
+
+.secret-code-value {
+  font-size: clamp(1.3rem, 6vw, 2rem);
+  letter-spacing: clamp(4px, 3vw, 10px);
+}
+
+.secret-code-box::before,
+.secret-code-box::after {
+  font-size: 0.45rem;
+}
+
+
+.result-details {
+  width: 94%;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  line-height: 1.8;
+}
+
+.detail-label {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+}
+
+.result-details .highlight {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+
+.modal-actions {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-actions .cyber-btn {
+  width: min(240px, 90%);
+  min-width: 0;
+}
+
+
+.xp-gain {
+  margin: 10px 0;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+
+.reset-confirm-modal {
+  padding: 16px 14px;
+}
+
+.reset-warning-icon {
+  font-size: 2.5rem;
+}
+
+.reset-title {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  letter-spacing: 2px;
+}
+
+.reset-subtitle {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+.reset-list li {
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+}
+
+.reset-question {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  letter-spacing: 1px;
+}
+
+
+.rule-book-modal {
+  padding: 16px 14px;
+}
+
+.rule-book-content {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  line-height: 1.5;
+}
+
+.rule-book-content h3 {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  margin-bottom: 10px;
+}
+
+.rule-book-content p {
+  margin-bottom: 8px;
+}
+
+
+.modal-toast {
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  max-width: none;
+  padding: 10px 12px;
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+}
+
+.toast-content h4 {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+.toast-content p {
+  font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+}
+
+
+@media (min-width: 481px) {
+  #app-container {
+    padding: 10px;
+  }
+
+  .screen {
+    padding: 12px;
+  }
+
+  .title-container {
+    margin-bottom: 30px;
+  }
+
+  .glitch {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    letter-spacing: clamp(3px, 2vw, 6px);
+  }
+
+  .cyber-btn {
+    width: min(300px, 85%);
+    padding: 12px 20px;
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+  }
+
+  .player-card {
+    width: min(300px, 85%);
+  }
+
+  .menu-options {
+    gap: 16px;
+  }
+
+  
+  .game-header {
+    justify-content: space-between;
+  }
+
+  .mission-info {
+    width: auto;
+    text-align: left;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+  }
+
+  .game-layout {
+    padding-bottom: 0;
+  }
+
+  .keypad {
+    position: static;
+    transform: none;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    grid-template-columns: repeat(3, clamp(52px, 14vw, 65px));
+    grid-auto-rows: clamp(52px, 14vw, 65px);
+    gap: 10px;
+  }
+
+  .display {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    letter-spacing: clamp(5px, 2vw, 10px);
+  }
+
+  .guess-history {
+    max-height: 220px;
+  }
+
+  .hacker-console {
+    max-height: 200px;
+  }
+
+  
+  .modal {
+    width: 90%;
+    padding: 18px;
+  }
+
+  .modal-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .modal-actions .cyber-btn {
+    width: auto;
+    min-width: 130px;
+    flex: 1 1 auto;
+  }
+
+  
+  .modal-toast {
+    left: auto;
+    right: 15px;
+    bottom: 15px;
+    max-width: calc(100vw - 30px);
+  }
+
+  
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
+}
+
+
+@media (min-width: 769px) {
+  #app-container {
+    padding: 16px;
+  }
+
+  .screen {
+    padding: 16px;
+  }
+
+  .title-container {
+    margin-top: 5vh;
+    margin-bottom: 40px;
+  }
+
+  .glitch {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    letter-spacing: clamp(2px, 0.8vw, 4px);
+  }
+
+  .subtitle {
+    letter-spacing: clamp(4px, 1.5vw, 8px);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+  }
+
+  .cyber-btn {
+    width: min(300px, 80%);
+    padding: 14px 32px;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+  }
+
+  .menu-options {
+    gap: 20px;
+  }
+
+  .player-card {
+    width: min(300px, 80%);
+    margin-top: 30px;
+  }
+
+  
+  .header-nav h2 {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-left: 20px;
+    letter-spacing: 2px;
+  }
+
+  
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  
+  .mission-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  
+  .theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  
+  .game-layout {
+    grid-template-columns: 1fr 220px;
+    grid-template-rows: 1fr auto;
+    gap: 16px;
+  }
+
+  .game-board {
+    order: 1;
+    grid-row: 1 / 3;
+  }
+
+  .guess-history {
+    order: 2;
+    max-height: none;
+  }
+
+  .hacker-console {
+    order: 3;
+    max-height: none;
+  }
+
+  .lock-container {
+    height: 70px;
+  }
+
+  .lock-svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, clamp(56px, 10vw, 68px));
+    grid-auto-rows: clamp(56px, 10vw, 68px);
+    gap: 12px;
+  }
+
+  .display {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    letter-spacing: clamp(6px, 1.5vw, 12px);
+    min-height: 50px;
+  }
+
+  
+  .modal {
+    width: 85%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  .secret-code-value {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: clamp(8px, 2vw, 12px);
+  }
+
+  .reset-confirm-modal {
+    padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px);
+  }
+
+  
+  .modal-toast {
+    right: 25px;
+    bottom: 25px;
+    max-width: 400px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  #app-container {
+    padding: 20px;
+  }
+
+  .screen {
+    padding: 20px;
+  }
+
+  .title-container {
+    margin-bottom: 50px;
+  }
+
+  .glitch {
+    font-size: clamp(3rem, 5vw, 4rem);
+    letter-spacing: clamp(3px, 0.5vw, 5px);
+  }
+
+  .subtitle {
+    letter-spacing: clamp(6px, 1vw, 10px);
+    font-size: 1rem;
+  }
+
+  .cyber-btn {
+    width: 300px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .player-card {
+    width: 300px;
+    margin-top: 40px;
+    padding: 15px;
+  }
+
+  .menu-options {
+    gap: 20px;
+  }
+
+  .rank-title {
+    font-size: 1.2rem;
+  }
+
+  
+  .game-layout {
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 1fr;
+    gap: 20px;
+  }
+
+  .game-board {
+    order: 0;
+  }
+
+  .guess-history {
+    order: 0;
+    max-height: none;
+  }
+
+  .hacker-console {
+    order: 0;
+    max-height: none;
+  }
+
+  .game-header {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0 20px;
+    min-height: 70px;
+  }
+
+  .mission-info {
+    font-size: 1.5rem;
+    width: auto;
+    text-align: left;
+  }
+
+  .lock-container {
+    height: 80px;
+  }
+
+  .lock-svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, 70px);
+    grid-auto-rows: 70px;
+    gap: 15px;
+  }
+
+  .keypad button {
+    font-size: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .display {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: clamp(8px, 1.5vw, 15px);
+    min-height: 60px;
+  }
+
+  
+  .header-nav h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+
+  .icon-btn {
+    font-size: 1.2rem;
+  }
+
+  
+  .panel-header {
+    font-size: inherit;
+    letter-spacing: 2px;
+  }
+
+  
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .data-list li {
+    font-size: inherit;
+  }
+
+  
+  .mission-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .mission-card h3 {
+    font-size: inherit;
+  }
+
+  
+  .theme-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+  }
+
+  .achievement-name {
+    font-size: 0.8rem;
+  }
+
+  
+  .modal {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: row;
+  }
+
+  .modal-actions .cyber-btn {
+    width: auto;
+    min-width: 140px;
+  }
+
+  .secret-code-value {
+    font-size: 2.6rem;
+    letter-spacing: 14px;
+  }
+
+  .reset-confirm-modal {
+    padding: 40px 36px;
+  }
+
+  
+  .modal-toast {
+    right: 30px;
+    bottom: 30px;
+    max-width: 400px;
+  }
+
+  .toast-icon {
+    font-size: 2rem;
+  }
+
+  
+  .stat-box .label {
+    font-size: 0.7rem;
+  }
+
+  .stat-box .value {
+    font-size: 1.5rem;
+  }
+
+  .game-stats {
+    gap: 30px;
+  }
+
+  
+  .guess-num {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+  }
+
+  .guess-feedback {
+    font-size: 0.75rem;
+  }
+
+  .guess-item {
+    padding: 10px;
+  }
+
+  .console-body {
+    font-size: 0.8rem;
+  }
+
+  
+  .danger-title {
+    font-size: 1rem;
+  }
+
+  .danger-desc {
+    font-size: 0.85rem;
+  }
+}
